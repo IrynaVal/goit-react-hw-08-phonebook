@@ -1,13 +1,16 @@
 import { Outlet } from 'react-router-dom';
-import { Navigation } from 'components/Navigation/Navigation';
+// import { Navigation } from 'components/Navigation/Navigation';
+// import { UserMenu } from 'components/UserMenu/UserMenu';
+import { Header } from 'components/Header/Header';
 
 export const SharedLayout = () => {
   return (
     // <Layout>
     <main>
-      <header>
-        <Navigation />
-        {/* <Suspense
+      <Header />
+      {/* <Navigation />
+        <UserMenu /> */}
+      {/* <Suspense
           fallback={
             <ColorRing
               visible={true}
@@ -20,7 +23,7 @@ export const SharedLayout = () => {
             />
           }
         > */}
-      </header>
+
       <Outlet />
       {/* </Suspense> */}
     </main>

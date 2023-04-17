@@ -1,13 +1,13 @@
-/* import { useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { register } from 'redux/auth/operations';
-import css from './RegisterForm.module.css'; */
+// import css from './RegisterForm.module.css';
 
 export const RegisterForm = () => {
-  /* const dispatch = useDispatch(); */
+  const dispatch = useDispatch();
 
-  /* const handleSubmit = e => {
-    e.preventDefault();
-    const form = e.currentTarget;
+  const handleFormSubmit = evt => {
+    evt.preventDefault();
+    const form = evt.target;
     dispatch(
       register({
         name: form.elements.name.value,
@@ -16,10 +16,10 @@ export const RegisterForm = () => {
       })
     );
     form.reset();
-  }; */
+  };
 
   return (
-    <form autoComplete="off">
+    <form onSubmit={handleFormSubmit} autoComplete="off">
       <label>
         Username
         <input type="text" name="name" />
