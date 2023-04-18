@@ -1,4 +1,4 @@
-export const Home = () => {
+const Home = () => {
   return (
     <>
       <h1>My Phonebook</h1>
@@ -8,3 +8,5 @@ export const Home = () => {
     </>
   );
 };
+
+export default Home;

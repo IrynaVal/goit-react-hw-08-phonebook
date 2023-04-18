@@ -8,7 +8,7 @@ import { useSelector } from 'react-redux';
 
 export const Header = () => {
   const isLoggedIn = useSelector(authSelectors.selectIsLoggedIn);
-  console.log(isLoggedIn);
+  // console.log(isLoggedIn);
 
   return (
     <header>

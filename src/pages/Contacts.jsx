@@ -7,7 +7,7 @@ import { selectIsLoading, selectError } from 'redux/contacts/selectors';
 import { ContactForm } from 'components/ContactForm/ContactForm';
 import { Filter } from 'components/Filter/Filter';
 
-export const Contacts = () => {
+const Contacts = () => {
   const dispatch = useDispatch();
   const isLoading = useSelector(selectIsLoading);
   const error = useSelector(selectError);
@@ -38,4 +38,5 @@ export const Contacts = () => {
     </div>
   );
 };
-//
+
+export default Contacts;
