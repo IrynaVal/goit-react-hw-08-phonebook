@@ -16,13 +16,23 @@ export const ContactForm = () => {
       contact => contact.name === form.elements.name.value
     );
 
+    //   useEffect(() => {
+    //     if (contactName === '') return;
+    //     async function fetchContacts() {
+    //       const contact = await API.getContacts(contactName);
+    //       setContacts(contactName);
+    //     }
+
+    //     fetchContacts();
+    //   }, [contactName]);
+
     if (repeatName) {
       return alert(`${form.elements.name.value} is already in contacts`);
     } else {
       dispatch(
         addContact({
           name: form.elements.name.value,
-          phone: form.elements.number.value,
+          number: form.elements.number.value,
         })
       );
       form.reset();

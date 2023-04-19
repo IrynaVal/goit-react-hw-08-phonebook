@@ -13,7 +13,7 @@ import { SharedLayout } from './SharedLayout/SharedLayout';
 import { fetchCurrentUser } from 'redux/auth/operations';
 import { PrivateRoute } from './PrivateRoute';
 import { RestrictedRoute } from './RestrictedRoute';
-import { authSelectors } from 'redux/auth/selectors';
+import { selectIsCurrentUserFetching } from 'redux/auth/selectors';
 
 // import { ContactForm } from './ContactForm/ContactForm';
 // import { ContactList } from './ContactList/ContactList';
@@ -28,9 +28,7 @@ const NotFound = lazy(() => import('../pages/NotFound'));
 
 export const App = () => {
   const dispatch = useDispatch();
-  const isCurrentUserFetching = useSelector(
-    authSelectors.selectIsCurrentUserFetching
-  );
+  const isCurrentUserFetching = useSelector(selectIsCurrentUserFetching);
   // const isLoading = useSelector(selectIsLoading);
   // const error = useSelector(selectError);
 
@@ -38,34 +36,32 @@ export const App = () => {
     dispatch(fetchCurrentUser());
   }, [dispatch]);
 
-  return (
-    isCurrentUserFetching && (
-      <Routes>
-        <Route path="/" element={<SharedLayout />}>
-          <Route index element={<Home />} />
-          <Route
-            path="/register"
-            element={
-              <RestrictedRoute
-                redirectTo="/contacts"
-                component={<Register />}
-              />
-            }
-          />
-          <Route
-            path="/login"
-            element={
-              <RestrictedRoute redirectTo="/contacts" component={<Login />} />
-            }
-          />
-          <Route
-            path="/contacts"
-            element={
-              <PrivateRoute redirectTo="/login" component={<Contacts />} />
-            }
-          />
+  return isCurrentUserFetching ? (
+    <b>Refreshing user...</b>
+  ) : (
+    <Routes>
+      <Route path="/" element={<SharedLayout />}>
+        <Route index element={<Home />} />
+        <Route
+          path="/register"
+          element={
+            <RestrictedRoute redirectTo="/contacts" component={<Register />} />
+          }
+        />
+        <Route
+          path="/login"
+          element={
+            <RestrictedRoute redirectTo="/contacts" component={<Login />} />
+          }
+        />
+        <Route
+          path="/contacts"
+          element={
+            <PrivateRoute redirectTo="/login" component={<Contacts />} />
+          }
+        />
 
-          {/* <PublicRoute index>
+        {/* <PublicRoute index>
           <Home />
         </PublicRoute>
 
@@ -80,10 +76,10 @@ export const App = () => {
         <PrivateRoute path="/contacts">
           <Contacts />
         </PrivateRoute> */}
-          <Route path="*" element={<NotFound />} />
-        </Route>
-      </Routes>
-    )
+        <Route path="*" element={<NotFound />} />
+      </Route>
+    </Routes>
+
     // <div>
     //   <h1>Phonebook</h1>
     //   <ContactForm />
