@@ -7,13 +7,10 @@ import { useSelector } from 'react-redux';
 
 export const Header = () => {
   const isLoggedIn = useSelector(selectIsLoggedIn);
-  // console.log(isLoggedIn);
 
   return (
     <header>
       <Navigation />
-      {/* <AuthNav />
-      <UserMenu /> */}
       {isLoggedIn ? <UserMenu /> : <AuthNav />}
     </header>
   );

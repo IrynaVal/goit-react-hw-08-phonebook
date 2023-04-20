@@ -1,6 +1,5 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-// import { Contact } from 'components/Contact/Contact';
 import { ContactList } from 'components/ContactList/ContactList';
 import { fetchContacts } from 'redux/contacts/operations';
 import { selectIsLoading, selectError } from 'redux/contacts/selectors';
@@ -15,16 +14,6 @@ const Contacts = () => {
   useEffect(() => {
     dispatch(fetchContacts());
   }, [dispatch]);
-
-  //   useEffect(() => {
-  //     if (contactName === '') return;
-  //     async function fetchContacts() {
-  //       const contact = await API.getContacts(contactName);
-  //       setContacts(contactName);
-  //     }
-
-  //     fetchContacts();
-  //   }, [contactName]);
 
   return (
     <div>

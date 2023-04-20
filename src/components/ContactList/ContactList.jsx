@@ -11,8 +11,7 @@ export const ContactList = () => {
       <ul>
         {contacts.map(contact => (
           <li key={contact.id} className={css.listItem}>
-            {/* <Contact contact={contact} /> */}
-            <Contact id={contact.id} contact={contact} />
+            <Contact contact={contact} />
           </li>
         ))}
       </ul>

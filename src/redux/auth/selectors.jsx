@@ -5,10 +5,6 @@ export const selectUseremail = state => state.auth.user.email;
 export const selectIsCurrentUserFetching = state =>
   state.auth.isCurrentUserFetching;
 
-// export const authSelectors = {
-//   selectIsLoggedIn,
-//   selectUseremail,
-//   selectIsCurrentUserFetching,
-// };
+export const selectAuthIsLoading = state => state.auth.isLoading;
 
-// export default authSelectors;
+export const selectAuthError = state => state.auth.error;
