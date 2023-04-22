@@ -1,10 +1,14 @@
+import { Typography } from '@mui/material';
+
 const Home = () => {
   return (
     <>
-      <h1>My Phonebook</h1>
-      <p>
-        <b>Welcome!</b>
-      </p>
+      <Typography variant="h1" textAlign={'center'} marginTop={'150px'}>
+        My Phonebook
+      </Typography>
+      <Typography variant="h2" textAlign={'center'} marginTop={'75px'}>
+        Welcome!
+      </Typography>
     </>
   );
 };

@@ -2,7 +2,8 @@ import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 import { addContact } from 'redux/contacts/operations';
 import { selectContacts } from 'redux/contacts/selectors';
-import css from './ContactForm.module.css';
+import { Form, Label } from './ContactForm.styled';
+import { Button } from '@mui/material';
 
 export const ContactForm = () => {
   const dispatch = useDispatch();
@@ -30,8 +31,8 @@ export const ContactForm = () => {
   };
 
   return (
-    <form className={css.form} onSubmit={handleFormSubmit}>
-      <label className={css.field}>
+    <Form onSubmit={handleFormSubmit}>
+      <Label>
         Name
         <input
           type="text"
@@ -40,8 +41,8 @@ export const ContactForm = () => {
           title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
           required
         />
-      </label>
-      <label className={css.field}>
+      </Label>
+      <Label>
         Number
         <input
           type="tel"
@@ -50,10 +51,10 @@ export const ContactForm = () => {
           title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
           required
         />
-      </label>
-      <button className={css.btn} type="submit">
+      </Label>
+      <Button variant="outlined" size="small" type="submit">
         Add contact
-      </button>
-    </form>
+      </Button>
+    </Form>
   );
 };

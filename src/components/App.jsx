@@ -7,6 +7,7 @@ import { PrivateRoute } from './PrivateRoute';
 import { RestrictedRoute } from './RestrictedRoute';
 import { selectIsCurrentUserFetching } from 'redux/auth/selectors';
 import { GlobalStyle } from './GlobalStyle';
+import { CircularProgress } from '@mui/material';
 
 const Home = lazy(() => import('../pages/Home'));
 const Register = lazy(() => import('../pages/Register'));
@@ -23,7 +24,7 @@ export const App = () => {
   }, [dispatch]);
 
   return isCurrentUserFetching ? (
-    <b>Refreshing user...</b>
+    <CircularProgress />
   ) : (
     <>
       <Routes>

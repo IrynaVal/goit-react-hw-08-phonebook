@@ -1,9 +1,0 @@
-.listItem {
-  display: flex;
-  gap: 20px;
-  align-items: center;
-}
-
-.listName {
-  margin-top: 5px;
-}

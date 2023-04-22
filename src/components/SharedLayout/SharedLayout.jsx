@@ -1,21 +1,17 @@
 import { Outlet } from 'react-router-dom';
-import { Header } from 'components/AppBar/AppBar';
+import { Header } from 'components/Header/Header';
 import { Suspense } from 'react';
+import { Box, Container } from '@mui/material';
 
 export const SharedLayout = () => {
   return (
-    // <Layout>
-    <main>
-      <Header />
-      <Suspense
-        fallback={
-          null
-          // <p>Loading...</p>
-        }
-      >
-        <Outlet />
-      </Suspense>
-    </main>
-    // </Layout>
+    <Box>
+      <Container>
+        <Header />
+        <Suspense fallback={null}>
+          <Outlet />
+        </Suspense>
+      </Container>
+    </Box>
   );
 };

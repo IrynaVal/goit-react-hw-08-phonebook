@@ -5,6 +5,7 @@ import { fetchContacts } from 'redux/contacts/operations';
 import { selectIsLoading, selectError } from 'redux/contacts/selectors';
 import { ContactForm } from 'components/ContactForm/ContactForm';
 import { Filter } from 'components/Filter/Filter';
+import { Typography, CircularProgress } from '@mui/material';
 
 const Contacts = () => {
   const dispatch = useDispatch();
@@ -17,12 +18,28 @@ const Contacts = () => {
 
   return (
     <div>
-      <h1>Phonebook</h1>
+      <Typography
+        variant="h4"
+        textAlign={'center'}
+        marginTop={'30px'}
+        fontWeight={'700'}
+        color={'#1976d2'}
+      >
+        Phonebook
+      </Typography>
       <ContactForm />
 
-      <h2>Contacts</h2>
+      <Typography
+        variant="h5"
+        textAlign={'center'}
+        marginTop={'30px'}
+        fontWeight={'700'}
+        color={'#1976d2'}
+      >
+        Contacts
+      </Typography>
       <Filter />
-      {isLoading && !error && <b>Request in progress...</b>}
+      {isLoading && !error && <CircularProgress />}
       <ContactList />
     </div>
   );
